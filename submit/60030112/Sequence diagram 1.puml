@@ -1,0 +1,37 @@
+@startuml
+participant Customer
+
+
+Customer -> member : Add
+
+
+member -> Enployee : application
+
+
+Enployee -> Manu  : SetManu
+
+Manu -> Product : Check product
+
+
+Product -> Manu : NO
+
+Product -> Table : SetTable
+
+
+Table -> Order : SetOrder
+
+
+Order -> Food : SetFood
+
+
+Food --> Order : sendFoodInfo
+deactivate Order
+
+Order -> Enployee : SendFoodList
+deactivate Enployee
+
+Enployee --> Customer : RequestPayment
+
+Customer -> Enployee : MakePayment
+
+@enduml

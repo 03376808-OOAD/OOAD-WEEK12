@@ -1,0 +1,16 @@
+@startuml stateDiagram_ReserveTable
+hide empty description
+
+[*] -> website : Start
+website -> membersystem : Login
+membersystem : entry and Login
+membersystem -> membersystem : member failed
+membersystem --> BookingInformation  : To 
+BookingInformation : Date,time,amount
+BookingInformation --> BookingInformation : Fill In
+BookingInformation --> CheckReservations : Send
+CheckReservations ---> BookingInformation : Full
+CheckReservations -> Successfulreservation
+Successfulreservation -> [*]
+
+@enduml

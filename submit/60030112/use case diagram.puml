@@ -1,0 +1,36 @@
+@startuml online food ordering
+left to right direction
+actor Customer 
+actor owner
+skinparam Shadowing false
+skinparam usecase{
+    FontColor white
+    BackgroundColor #Blue
+    BorderColor #rBlue
+    ArrowColor #red
+}
+skinparam actor{
+    FontColor YellowGreen
+    BackgroundColor YellowGreen
+    BorderColor YellowGreen
+
+}
+skinparam rectangle{
+    FontColor YellowGreen
+    BorderColor YellowGreen
+}
+
+rectangle "online food ordering "{
+    Customer -- (add member)
+	(add member) -- owner
+	(Login) -- owner
+	(Manage products) "include" -- owner
+	Customer -- (Order products)
+	(Order products) "include"...>  Login
+	(Report)"include" ...> Login
+	(Report)"include" -- owner
+	(Material Control) -- owner
+	Customer -- (Table)
+	(Table)"include"...> Login
+}
+@enduml
