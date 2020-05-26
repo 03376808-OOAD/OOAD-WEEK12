@@ -1,0 +1,17 @@
+@startuml ใบเสร็จรับเงิน
+actor customer
+participant printer
+activate computer
+activate printer
+participant computer
+actor "book shop" as shop
+
+customer --> shop :ซื้อหนังสือ
+customer --> shop :ชำระเงิน
+shop --> computer: พิมพ์รายละเอียดการสั่งซื้อสินค้า
+computer --> printer : พิมพ์ใบเสร็จ
+printer --> shop : ใบเสร็จ
+shop --> customer: ส่งใบเสร็จรับเงิน
+
+
+@enduml

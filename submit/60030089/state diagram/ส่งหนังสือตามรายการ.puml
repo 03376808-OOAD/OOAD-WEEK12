@@ -1,0 +1,17 @@
+@startuml ส่งหนังสือตามรายการ
+skinparam BackgroundColor lightgreen
+skinparam Shadowing false
+skinparam state{
+   BackgroundColor light      
+}
+[*] --> A:เมื่อมีการสั่งหนังสือแล้ว
+state A as "สำนักพิมพ์"{
+     A: จัดทำหนังสือตามรายการที่สั่ง
+     A: จัดส่งหนังสือไปยังร้านค้า
+}
+A --> B : สำนักพิมพ์จัดส่งหนังสือให้แก่ร้านค้า
+state B as "ร้านค้า"{
+    B : ร้านค้ารับหนังสือและส่งต่อยังลูกค้า
+}
+B-->[*]:ส่งหนังสือให้แก่ลูกค้า
+@enduml

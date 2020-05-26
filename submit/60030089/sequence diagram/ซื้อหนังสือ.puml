@@ -1,0 +1,26 @@
+@startuml ซื้อหนังสือ
+actor customer
+participant "web customer"  as web
+activate web
+participant "web owner" as webb
+activate webb
+actor "book shop" as shop
+customer --> web :เปิดเว็ปไซด์
+customer --> web :เลือกซื้อหนังสือ
+customer --> web :แจ้งที่อยู่
+customer --> shop :ชำระเงิน
+web --> webb: แจ้งหนังสือที่ถูกสั่ง
+webb --> shop:แจ้งหนังสือที่ถูกสั่ง
+shop --> webb:ยืนยันคำสั่งซื้อ
+webb --> web : ยืนยันการสั่งซื้อ
+web --> customer :หนังสือได้รับการยืนยันการสั่งซื้อแล้ว
+shop --> customer : ส่งหนังสือ
+shop --> webb : แจ้งสถานะหนังสือ
+webb --> web : แจ้งสถานะหนังสือ
+web --> customer:แจ้งสถานะหนังสือ
+customer --> web : ยืนยันการรับสินค้า
+web --> webb :ยืนยันการรับสินค้า
+webb --> shop :ยืนยันการรับสินค้า
+
+
+@enduml
