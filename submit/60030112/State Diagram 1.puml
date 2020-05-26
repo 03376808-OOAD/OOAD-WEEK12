@@ -1,0 +1,20 @@
+@startuml stateDiagram_PlaceAnOrder
+hide empty description
+
+[*] --> website : Start
+website -> membersystem: Login
+membersystem -> membersystem : member failed
+membersystem : entry and Login
+membersystem --> FoodItem : Register
+FoodItem  --> ConfirmProduct 
+ConfirmProduct : RawMaterials
+ConfirmProduct -> ConfirmProduct : Check product 
+ConfirmProduct ---> FoodItem : NO : 
+ConfirmProduct --> ShowProduct : Yes
+ShowProduct : EditProduct 
+ShowProduct -> ShowProduct :NO
+ShowProduct --> SaveData : Send to
+SaveData -> ShowReceipt : Print
+ShowReceipt -> [*]
+
+@enduml

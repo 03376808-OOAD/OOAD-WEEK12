@@ -1,0 +1,122 @@
+@startuml
+' hide the spot
+hide circle
+
+entity "Enployee" as e01 {
+  -EnployeeID
+  -Password
+  -Username
+  -Date
+  -CatID
+  -CatName
+  -StockLimit
+  -Picture
+  --
+  +Add products()
+  +Product show()
+  +Edit product()
+}
+
+entity "Add products" as e02 {
+  - Add product information
+  - Addition information
+}
+
+entity "Edit product" as e03 {
+  - Product editing information
+  - Stock Detail edit
+}
+entity "Product show" as e04 {
+  -ProductId
+  -MetaKeyword
+  -MetaDescription
+  -Title
+  -CatID
+  -Product Code
+  -Product Name
+  -New
+  -Quantity
+  -Description
+}
+entity "Order" as e05 {
+  -OrderId
+  -date
+  -status
+  -MemberId
+  -Total
+  --
+  +Cancel()
+  +Process()
+  +Creatrltem()
+  +Updateltem()
+  +Deleteltem()
+}
+entity "Customer" as e06 {
+  -CustomerID
+  -Password
+  -address
+  -phone
+  -line
+  --
+  +Update()
+}
+
+entity "Food" as e09 {
+  -EnployeeID
+  -Password
+  -name
+  -desciption
+  -Price
+  -type
+  --
+  +modifySteak
+  +setSteak
+}
+entity "Payment" as e10 {
+  -Amounnt
+  -Payment Option
+}
+entity "Bank" as e11 {
+  -cardID
+  -Account No
+  -Account Type
+  -Online Payment ID and Password
+}
+
+entity "Table" as e13 {
+  -ID
+  -Strdate
+  -enddate
+  -strtime
+  -endtime
+  -teble_type
+  -mstatus
+  -room
+  -name
+}
+entity "Login" as e14 {
+  -LoginId
+  -Username
+  -Password
+  -ForgotPassword
+  -LOGIN
+}
+entity "Cash" as e15 {
+  - Direct payment
+}
+
+e01 --> e02 : 1..n
+e01 --> e03 : 1..n
+e01 --> e04 : 1..n
+e05 *- e01 : 1..n
+e06 --*  e05 : composition
+e05 -> e09 
+e01 -> e10
+e10 *-- e11 : 1..n
+e01 --> e13 : 1..n
+e05 <|-- e13 : n..1
+e06 -> e14
+e14 --> e05
+e10 *-- e15 : 1..n
+e09 --> e13
+@enduml

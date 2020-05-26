@@ -1,0 +1,40 @@
+﻿@startuml
+participant Owner
+
+
+Owner -> EnployeeInterface : Login
+
+
+EnployeeInterface -> Reservation :setReservation
+
+
+Reservation -> Table : setTable
+
+
+Table -> Order : setOrder
+
+
+Order -> Food : setFood
+
+
+Food --> Order :sendSteakInfo
+deactivate Order
+
+Order --> Table : sendOrderInfo
+deactivate Table
+
+Table --> Reservation : sendTableInfo
+deactivate Reservation
+
+Reservation --> EnployeeInterface : requestPayment
+deactivate EnployeeInterface 
+
+EnployeeInterface -> Reservation : makePatment
+
+Reservation --> EnployeeInterface : confirmPatment
+
+
+EnployeeInterface -> Reservation : setArrived
+
+
+@enduml
