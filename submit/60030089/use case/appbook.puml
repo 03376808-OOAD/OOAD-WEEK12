@@ -1,0 +1,38 @@
+@startuml appbook
+left to right direction
+
+skinparam {
+    BackgroundColor #00FFFF
+
+}
+skinparam usecase{
+    ArrowColor #000000
+}
+skinparam Shadowing false
+skinparam Linetype ortho
+actor customer<<human>>
+actor staff <<office>>
+"shop" as staff
+actor Publisher <<Company>>
+actor data <<Server>>
+"data server" as data
+actor Owner<<human>>
+
+rectangle ขั้นตอน{
+    customer --> (ซื้อหนังสือ)
+    (ซื้อหนังสือ) --> staff
+    (ใบเสร็จรับเงิน) <-- staff
+    (ใบเสร็จรับเงิน) --> customer
+    staff --> (สั่งซื้อหนังสือ)
+    (สั่งซื้อหนังสือ) --> Publisher
+    Publisher --> (ส่งหนังสือตามรายการ)
+    (ส่งหนังสือตามรายการ) --> staff
+    staff --> (ใบสั่งซื้อ \n ใบเสร็จรับเงิน)
+    (ใบสั่งซื้อ \n ใบเสร็จรับเงิน) --> data
+    data --> (สั่งซื้อหนังสือ \n รับหนังสือ \n ขายหนังสือ)
+    (สั่งซื้อหนังสือ \n รับหนังสือ \n ขายหนังสือ) --> staff
+    data --> (รายงานสรุประบบ)
+    (รายงานสรุประบบ) --> Owner
+
+}
+@enduml

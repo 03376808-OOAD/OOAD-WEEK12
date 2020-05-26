@@ -1,0 +1,22 @@
+@startuml ใบสั่งซื้อ
+skinparam BackgroundColor lightgreen
+skinparam Shadowing false
+skinparam state{
+   BackgroundColor light      
+}
+[*] -->  A :เมื่อมีการสั่งซื้อแล้ว
+state A as "ร้านค้า"{
+    A : พิมพ์รายละเอียดการสั่งซื้อ
+}
+A --> B :บันทึก
+state B as "เซิร์ฟเวอร์"{
+    B : บันทึกรายละเอียดการสั่งซื้อ
+}
+B --> C :รายงานการสั่งซื้อ
+state C as "เจ้าของร้าน"{
+    C :ยืนยันการสั่งซื้อ
+}
+C --> [*]
+
+
+@enduml
