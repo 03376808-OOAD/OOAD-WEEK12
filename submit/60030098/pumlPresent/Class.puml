@@ -1,0 +1,75 @@
+@startuml
+
+class Home{
+    +Members
+    +webboard
+    +News
+    +AboutUs
+    +Profile
+    +FindAlumni
+}
+class Members{
+    #id
+    +name
+    #birthday
+    +sex
+    +address
+    +phone
+    +username
+    #password
+    +email
+    -register_type
+}
+class User{
+
+}
+class Admin{
+    -AdminControlPanel
+}
+class webboard{
+    +topic
+    +comment
+    NewTopic()
+    EditTopic()
+    DeleteTopic()
+    NewComment()
+    EditComment()
+    DeleteComment()
+}
+class News{
+    +Newsdetail
+    +comment
+}
+class AboutUs{
+    +AboutUsdetail
+}
+class Profile{
+    +user_id
+    +user_detail
+    EditProfile()
+    Login()
+    Register()
+}
+class FindAlumni{
+    +showuser
+    FindUser()
+}
+class AdminControlPanel{
+    +AllUserList
+    +AllCo
+    NewNews()
+    EditNews()
+    DeleteNews()
+    EditAboutUs()
+    AdminTalk()
+}
+Members <|-- User
+Members <|-- Admin
+Admin "1" *-- "1" AdminControlPanel
+Home "1" o-- "1" News
+Home "1" o-- "1" Profile
+Home "1" o-- "1" FindAlumni
+Home "1" *-- "Many" Members
+Home "1" o-- "1" AboutUs
+Home "1" o-- "Many" webboard
+@enduml

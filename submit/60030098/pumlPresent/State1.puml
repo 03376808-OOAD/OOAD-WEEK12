@@ -1,0 +1,22 @@
+@startuml Login
+
+User : do/use funtion in this website
+Members : do/Memories Members
+Profile : do/Show user detail
+
+[*] ->  User
+User -> Login : send data to login
+Login -> Members : bring information from database
+Members -> Login : send information to Login
+Login -> User : Your Username or Password are wrong
+Login -down-> Profile : Login successful
+Profile -> [*] 
+
+state Login{
+    CheckUser : Check user from database
+    CheckPass : Check password from database
+    [*] -> CheckUser
+    CheckUser -> CheckPass
+    CheckPass -> [*]
+}
+@enduml

@@ -1,0 +1,16 @@
+@startuml FindUser
+
+actor User
+participant "Find Alumni" as F
+participant "Members" as M
+
+User -> F : ค้นหาข้อมูล
+F -> M : ค้นหาข้อมูลในฐานข้อมูล
+M -> F : ส่งข้อมูลกลับ
+F -> User : ส่งข้อมูลที่หาได้ทั้งหมดไปให้ User
+User -> F : เรียกดูข้อมูลสมาชิกที่ต้องการ
+F -> M : ค้นหาข้อมูลของสมาชิกคนนั้นในฐานข้อมูล
+M -> F : ส่งข้อมูลกลับ
+F -> User : แสดงข้อมูลที่ค้นหา
+
+@enduml
