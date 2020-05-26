@@ -1,0 +1,60 @@
+@startuml WebsiteAlumni
+
+actor Admin
+actor User
+left to right direction
+skinparam rectangle{    
+    FontColor #73ae42
+    BorderColor #73ae42
+    Shadowing false
+}
+skinparam actor{
+    FontColor #73ae42
+    BackgroundColor #73ae42
+    BorderColor #73ae42
+    Shadowing false
+}
+skinparam usecase {
+    FontColor White 
+    ArrowColor #5b9bd5
+    BackgroundColor #5b9bd5
+    BorderColor #5b9bd5
+    Shadowing false
+}
+rectangle "Website Alumni" {
+    rectangle "Webboard"{
+        (New Topic) -- User
+        Admin -- (New Topic)
+        Admin -- (Edit Topic)
+        (Edit Topic) -- User
+        Admin -- (Delete Topic)
+        (Delete Topic) -- User
+        (New Comment) -- User
+        Admin -- (New Comment)
+        (Edit Comment) -- User
+        Admin -- (Edit Comment)
+        (Delete Comment) -- User
+        Admin -- (Delete Comment)
+    }
+    rectangle "Profile"{
+        (Login) -- User
+        Admin -- (Login)
+        (Register) -- User
+        Admin -- (Register)
+        (Edit Profile) -- User
+        Admin -- (Edit Profile)
+    }
+    rectangle "Find Alumni"{
+        (Find User) -- User
+        Admin -- (Find User)
+    }
+    rectangle "Admin Control Panel"{
+        Admin -- (New News)
+        Admin -- (Delete News)
+        Admin -- (Edit News)
+        Admin -- (Edit About us)
+        Admin -- (AdminTalk)
+    }
+}
+
+@enduml

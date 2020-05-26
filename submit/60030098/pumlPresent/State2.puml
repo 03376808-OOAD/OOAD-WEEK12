@@ -1,0 +1,15 @@
+@startuml
+
+User : do/use funtion in this website
+NewTopic : do/Post new Topic
+Editor : do/Add detail for Topic
+Topic : do/Show all Topic
+
+[*] -> User 
+User -> NewTopic : Use function
+NewTopic -> Editor : Use editor for add detail
+Editor -> NewTopic : Send back detail
+NewTopic -down-> Topic : Post Topic
+Topic -left-> [*]
+
+@enduml
