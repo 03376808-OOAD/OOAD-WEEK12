@@ -1,0 +1,19 @@
+@startuml "ตรวจสอบสินค้า"
+skinparam Shadowing false
+skinparam state{
+    BackgroundColor pink 
+}
+[*]-> product
+product:รับสินค้า
+checking:ตรวจสอบรายการ
+received:รับสินค้า
+write:เขียนไว้ในคำสั่งซื้อ
+reject:ไม่รับสินค้า
+product --> checking
+checking --> received:สินค้าถูกต้อง
+checking -right-> write:สินค้าไม่ถูกต้อง
+write -up-> reject
+reject -up-> product
+received --> [*]
+reject --> [*]
+@enduml
