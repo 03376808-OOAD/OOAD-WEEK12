@@ -1,0 +1,12 @@
+@startuml
+hide empty description
+[*] --> receive : receive order from
+receive --> beingcheck : Check product quantity
+beingcheck --> cancellorder : Not enough products
+cancellorder --> receive : Edit product list
+cancellorder --> [*]
+beingcheck --> Input : Enough product
+Input --> record : Confirm transaction
+record --> printout : record successfully
+printout --> [*] : Print purchase order
+@enduml

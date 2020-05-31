@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+:customer:
+:Factory:
+:staff:
+:Business:
+rectangle Alcohol_Sale_Management_System {
+customer -- (Order 1 system)
+(Order 1 system) -- staff
+customer -- (Product delivery system)
+(Product delivery system) -- staff
+Factory -- (Order 2 system)
+(Order 2 system) -- staff
+Factory -- (Order delivery system)
+(Order delivery system) -- staff
+staff -- (report)
+(report) -- Business
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+participant ";staff"
+participant ";Database system"
+participant ";Buy-Sellsystem"
+participant ";factory"
+";staff" -> ";Database system" :  Check the amount of products
+";Database system" -> ";staff" : Balance notification
+";staff" -> ";Buy-Sellsystem" :  Factory order form
+";Buy-Sellsystem" -> ";factory" : order
+";factory" -> ";Buy-Sellsystem" : Purchase order sheet
+";Buy-Sellsystem" -> ";Database system" : Save to database
+";Buy-Sellsystem" -> ";staff" : Print purchase order
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+participant ";customer"
+participant ";staff"
+participant ";Buy-Sellsystem"
+participant ";Database system"
+
+";customer" -> ";staff": order
+";staff" -> ";Buy-Sellsystem" : Fill out the customer order form.
+";Buy-Sellsystem" -> ";Database system" : Check the amount of products
+";Database system" -> ";Buy-Sellsystem" : (Not enough products) exit
+";Database system" -> ";Buy-Sellsystem" : (Enough product) enough product
+";Buy-Sellsystem" -> ";Database system" : Save to database
+";Buy-Sellsystem" -> ";Database system" : Request Information
+";Database system" -> ";Buy-Sellsystem" : Information of order
+";Buy-Sellsystem" -> ";staff" : Print purchase order
+";staff" -> ";customer" :  purchase order
+@enduml
